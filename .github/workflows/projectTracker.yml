@@ -15,6 +15,6 @@ jobs:
           slack-token: ${{xoxb-8563173949174-8578161374773-ZZhyC2K1TmzLhG0IwI0rS5yP}}
           channel-id: "C08HQTB13FA"  
           text: >
-            *New Ticket Alert!*
+            *New Ticket!*
             *Issue:* <${{ github.event.issue.html_url }}|${{ github.event.issue.title }}>
             *Assigned to:* ${{ join(github.event.issue.assignees.*.login, ', ') }}
