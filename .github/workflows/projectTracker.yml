@@ -1,0 +1,20 @@
+name: "Notify Slack on New Ticket Assignment"
+
+on:
+  issues:
+    types: [opened, assigned]
+
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Notify Slack if ticket has assignees
+        if: ${{ github.event.issue.assignees && github.event.issue.assignees.length > 0 }}
+        uses: slackapi/slack-github-action@v1.23.0
+        with:
+          slack-token: ${{xoxb-8563173949174-8578161374773-ZZhyC2K1TmzLhG0IwI0rS5yP}}
+          channel-id: "C08HQTB13FA"  
+          text: >
+            *New Ticket Alert!*
+            *Issue:* <${{ github.event.issue.html_url }}|${{ github.event.issue.title }}>
+            *Assigned to:* ${{ join(github.event.issue.assignees.*.login, ', ') }}
