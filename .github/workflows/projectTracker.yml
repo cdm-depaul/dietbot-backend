@@ -12,8 +12,8 @@ jobs:
         if: ${{ github.event.issue.assignees && github.event.issue.assignees.length > 0 }}
         uses: slackapi/slack-github-action@v1.23.0
         with:
-          slack-token: ${{}}
-          channel-id: "C08HQTB13FA"  
+          slack-token: ${{SLACKBOT_SECRET}}
+          channel-id: "C08GMMHSZ1V"  
           text: >
             *New Ticket!*
             *Issue:* <${{ github.event.issue.html_url }}|${{ github.event.issue.title }}>
